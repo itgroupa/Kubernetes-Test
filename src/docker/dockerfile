@@ -1,0 +1,13 @@
+FROM nginx:alpine
+
+WORKDIR /build
+
+COPY ./nginx/ /etc/nginx/conf.d/
+
+RUN rm -rf /usr/src/app/*
+
+COPY ./html/ /usr/src/app
+
+EXPOSE 5010
+
+CMD ["nginx", "-g", "daemon off;"]

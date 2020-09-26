@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+
+    webang:
+        build:
+            context: .
+            dockerfile: docker/dockerfile
+        image : webangimg
+        ports:
+            - "5010:5010"
+        restart: always
+        container_name: "webangcon"
+        networks:
+            - itgroupa_network
+
+networks:
+    itgroupa_network:
+        driver: bridge
